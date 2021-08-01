@@ -14,13 +14,13 @@ function ChatBox({ Close }) {
       fetch("https://localhost:44316/api/v1/hotelvalledelvolcan-module/Bot/StartMessage")
       .then(response => response.json())
       .then(data => {
-        addMessage({ message: data.result, type: "self" })
+        addMessage({ message: data.result, type: "user" })
       })
     }
   }, [])
 
   const newMessageHandle = messageText => {
-    addMessage({ message: { text: messageText }, type: "user" })
+    addMessage({ message: { text: messageText }, type: "self" })
 
     fetch("https://localhost:44316/api/v1/hotelvalledelvolcan-module/Bot", {
       method: 'POST',
@@ -32,7 +32,7 @@ function ChatBox({ Close }) {
     })
       .then(response => response.json())
       .then(data => {
-        addMessage({ message: data.result, type: "self" })
+        addMessage({ message: data.result, type: "user" })
       })
 
   }
