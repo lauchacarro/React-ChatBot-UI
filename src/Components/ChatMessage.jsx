@@ -6,10 +6,14 @@ const ChatMessage = ({ message, type, onClick, showButtons }) => {
     return (
 
         <div id="cm-msg-5" class={"chat-msg " + type}>
-            <span class="msg-avatar">
-                <img src="https://i2.wp.com/cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png" />
-            </span>
-            <div class="cm-msg-text">
+            {
+                type === "user" &&
+                <span class="msg-avatar">
+                    <img src="https://i2.wp.com/cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png" />
+                </span>
+            }
+
+            <div class={"cm-msg-text " + classes.text}>
                 {message.text}
             </div>
             {
