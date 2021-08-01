@@ -14,12 +14,28 @@ const ChatProvider = (props) => {
 
 const useChat = () => {
   const [messages, setMessages] = React.useContext(ChatContext);
- 
+
   const addMessage = (message) => {
-    setMessages(array =>  [...array, message]);
+
+    if (message.type == "self")
+      message.message.entityQuestion = getEntityQuestion();
+      
+    setMessages(array => [...array, message]);
   };
- 
-  return { messages, addMessage };
+
+  const getConversationId = () => {
+    return messages[0].message.conversationId
+  }
+
+  const getEntityQuestion = () => {
+    return messages.filter(msg => msg.type == "user")?.pop()?.message.entityQuestion
+  }
+
+  const getEntities = () => {
+    return messages.filter(msg => msg.type == "user").pop().message.entities
+  }
+
+  return { messages, addMessage, getEntities, getConversationId, getEntityQuestion };
 };
 
 

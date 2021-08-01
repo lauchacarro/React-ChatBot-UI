@@ -12,11 +12,6 @@ const ChatLog = ({ messages, typing, buttonClick }) => {
         messagesEnd?.scrollIntoView({ behavior: "smooth" });
     });
 
-
-    const messageButtonClickHandle = btn => {
-        buttonClick(btn.name);
-    }
-
     return (
         <div class={classes.logs}>
             {
@@ -27,7 +22,7 @@ const ChatLog = ({ messages, typing, buttonClick }) => {
                             type={msg.type} 
                             key={index} 
                             showButtons={index == messages.length - 1} 
-                            onClick={messageButtonClickHandle} />
+                            onClick={buttonClick} />
                     )
                 })
             }
