@@ -16,19 +16,21 @@ const ChatMessage = ({ message, type, onClick, showButtons }) => {
             <div class={"cm-msg-text " + classes.text}>
                 {message.text}
             </div>
-            {
-                showButtons && message.buttons?.map((btn, index) => {
-                    return (
-                        <div class={"cm-msg-button"} key={index}>
-                            <ul>
-                                <li class={classes.msgbutton}>
-                                    <span class="btn btn-primary chat-btn" onClick={e => onClick(btn)} >{btn.name}</span>
-                                </li>
-                            </ul>
-                        </div>
-                    )
-                })
-            }
+            <div className="container-msg-buttons">
+                {
+                    showButtons && message.buttons?.map((btn, index) => {
+                        return (
+                            <div class={"cm-msg-button"} key={index}>
+                                <ul>
+                                    <li class={classes.msgbutton}>
+                                        <span class="btn btn-primary chat-btn" onClick={e => onClick(btn)} >{btn.name}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
 
     )
