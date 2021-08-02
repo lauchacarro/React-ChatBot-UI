@@ -67,9 +67,9 @@ html, body {
   padding:10px 15px 10px 15px;  
   color:#666;
   max-width:75%;
-  float:left;
+  /* float:left; */
   margin-left:10px; 
-  position:relative;
+  /* position:relative; */
   margin-bottom:20px;
   border-radius:30px;
 }
@@ -84,10 +84,26 @@ html, body {
 }
 .cm-msg-button>ul>li {
   list-style:none;
-  float:left;
+  /* float:left; */
   width:50%;
 }
-.cm-msg-button {
-    clear: both;
-    margin-bottom: 70px;
+.cm-msg-button>ul{
+  padding: 0;
+  margin: .5rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+}
+
+.cm-msg-button>ul:hover{
+  background: #ccc;
+}
+/* .cm-msg-button { */
+    /* clear: both;
+    margin-bottom: 70px; */
+/* } */
+
+.container-msg-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

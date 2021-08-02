@@ -8,27 +8,29 @@ const ChatMessage = ({ message, type, onClick, showButtons }) => {
         <div id="cm-msg-5" class={"chat-msg " + type}>
             {
                 type === "user" &&
-                <span class="msg-avatar">
+                <span className="msg-avatar">
                     <img src="https://i2.wp.com/cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png" />
                 </span>
             }
 
-            <div class={"cm-msg-text " + classes.text}>
+            <div className={"cm-msg-text " + classes.text}>
                 {message.text}
             </div>
-            {
-                showButtons && message.buttons?.map((btn, index) => {
-                    return (
-                        <div class={"cm-msg-button"} key={index}>
-                            <ul>
-                                <li class={classes.msgbutton}>
-                                    <span class="btn btn-primary chat-btn" onClick={e => onClick(btn)} >{btn.name}</span>
-                                </li>
-                            </ul>
-                        </div>
-                    )
-                })
-            }
+            <div className="container-msg-buttons">
+                {
+                    showButtons && message.buttons?.map((btn, index) => {
+                        return (
+                            <div className={"cm-msg-button"} key={index}>
+                                <ul>
+                                    <li className={classes.msgbutton}>
+                                        <span className="btn btn-primary chat-btn" onClick={e => onClick(btn)} >{btn.name}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
 
     )

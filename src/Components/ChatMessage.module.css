@@ -1,3 +1,5 @@
 .text {
     white-space: pre-line;
+    display: flex;
+    margin-left: 4rem;
 }
