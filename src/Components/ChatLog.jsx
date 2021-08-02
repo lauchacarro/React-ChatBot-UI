@@ -13,7 +13,7 @@ const ChatLog = ({ messages, typing, buttonClick }) => {
     });
 
     return (
-        <div class={classes.logs}>
+        <div className={classes.logs}>
             {
                 messages?.map((msg, index) => {
                     return (

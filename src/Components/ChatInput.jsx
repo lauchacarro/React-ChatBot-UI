@@ -12,8 +12,8 @@ const ChatInput = ({ SendMessage }) => {
 
     return (
         <div>
-            <input type="text" class={classes.input} placeholder="Send a message..." value={message} onChange={e => setMessage(e.target.value)} />
-            <button type="submit" class={classes.submit} onClick={handleButtonOnClick}><i class="material-icons">send</i></button>
+            <input type="text" className={classes.input} placeholder="Send a message..." value={message} onChange={e => setMessage(e.target.value)} />
+            <button type="submit" className={classes.submit} onClick={handleButtonOnClick}><i className="material-icons">send</i></button>
 
         </div>
     )

@@ -56,13 +56,13 @@ function ChatBox({ Close }) {
 
   return (
 
-    <div class={classes.box}>
-      <div class={classes.header}>
+    <div className={classes.box}>
+      <div className={classes.header}>
         ChatBot
-        <span class={classes.toggle} onClick={Close}><i class="material-icons">close</i></span>
+        <span className={classes.toggle} onClick={Close}><i className="material-icons">close</i></span>
       </div>
-      <div class={classes.body}>
-        <div class={classes.overlay}>
+      <div className={classes.body}>
+        <div className={classes.overlay}>
         </div>
         <ChatLog messages={messages} typing={false} buttonClick={messageButtonClickHandle} />
       </div>
