@@ -11,6 +11,7 @@ function ChatBox({ Close }) {
     getConversationId,
     getEntities,
     getEntityQuestion,
+    getDialogType,
   } = useChat();
 
   useEffect(() => {
@@ -39,6 +40,7 @@ function ChatBox({ Close }) {
           conversationId: getConversationId(),
           entities: getEntities(),
           entityQuestion: getEntityQuestion(),
+          dialogType: getDialogType(),
         }),
       }
     )
@@ -64,6 +66,7 @@ function ChatBox({ Close }) {
           conversationId: getConversationId(),
           entities: getEntities(),
           entityQuestion: getEntityQuestion(),
+          dialogType: getDialogType(),
         }),
       }
     )

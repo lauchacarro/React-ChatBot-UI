@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
 
 const ChatContext = React.createContext([[], () => []]);
 
@@ -10,33 +9,44 @@ const ChatProvider = (props) => {
       {props.children}
     </ChatContext.Provider>
   );
-}
+};
 
 const useChat = () => {
   const [messages, setMessages] = React.useContext(ChatContext);
 
   const addMessage = (message) => {
-
     if (message.type == "self")
       message.message.entityQuestion = getEntityQuestion();
-      
-    setMessages(array => [...array, message]);
+
+    setMessages((array) => [...array, message]);
   };
 
   const getConversationId = () => {
-    return messages[0].message.conversationId
-  }
+    return messages[0].message.conversationId;
+  };
 
   const getEntityQuestion = () => {
-    return messages.filter(msg => msg.type == "user")?.pop()?.message.entityQuestion
-  }
+    return messages.filter((msg) => msg.type == "user")?.pop()?.message
+      .entityQuestion;
+  };
+
+  const getDialogType = () => {
+    return messages.filter((msg) => msg.type == "user")?.pop()?.message
+      .dialogType;
+  };
 
   const getEntities = () => {
-    return messages.filter(msg => msg.type == "user").pop().message.entities
-  }
+    return messages.filter((msg) => msg.type == "user").pop().message.entities;
+  };
 
-  return { messages, addMessage, getEntities, getConversationId, getEntityQuestion };
+  return {
+    messages,
+    addMessage,
+    getEntities,
+    getConversationId,
+    getEntityQuestion,
+    getDialogType,
+  };
 };
-
 
 export { ChatProvider, useChat };
