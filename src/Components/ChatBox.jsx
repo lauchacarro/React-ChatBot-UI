@@ -16,7 +16,9 @@ function ChatBox({ Close }) {
 
   useEffect(() => {
     if (messages.length === 0) {
-      fetch("https://localhost:44316/api/v1/hotelvalledelvolcan-module/Bot/StartMessage")
+      fetch(
+        "https://localhost:44316/api/v1/hotelvalledelvolcan-module/Bot/StartMessage"
+      )
         .then((response) => response.json())
         .then((data) => {
           addMessage({ message: data.result, type: "user" });
@@ -25,6 +27,11 @@ function ChatBox({ Close }) {
   }, []);
 
   const messageButtonClickHandle = (button) => {
+    if (button.type === 1) {
+      window.location.href = button.data;
+      return;
+    }
+
     addMessage({ message: { text: button.name }, type: "self" });
 
     fetch(
