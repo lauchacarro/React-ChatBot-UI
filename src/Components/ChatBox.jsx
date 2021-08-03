@@ -16,7 +16,7 @@ function ChatBox({ Close }) {
 
   useEffect(() => {
     if (messages.length === 0) {
-      fetch("https://run.mocky.io/v3/9686b64a-37be-47fd-986b-7498226d3028")
+      fetch("https://localhost:44316/api/v1/hotelvalledelvolcan-module/Bot/StartMessage")
         .then((response) => response.json())
         .then((data) => {
           addMessage({ message: data.result, type: "user" });
@@ -28,7 +28,7 @@ function ChatBox({ Close }) {
     addMessage({ message: { text: button.name }, type: "self" });
 
     fetch(
-      "https://localhost:44316/api/v1/hotelvalledelvolcan-module/Bot/SendButtonValue",
+      "https://localhost:44316/api/v1/hotelvalledelvolcan-module/Bot/SendMessage",
       {
         method: "POST",
         headers: {
@@ -36,7 +36,7 @@ function ChatBox({ Close }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          value: button.value,
+          text: button.value,
           conversationId: getConversationId(),
           entities: getEntities(),
           entityQuestion: getEntityQuestion(),

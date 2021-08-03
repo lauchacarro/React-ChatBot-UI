@@ -2,7 +2,7 @@ import classes from "./ChatMessage.module.css"
 
 
 const ChatMessage = ({ message, type, onClick, showButtons }) => {
-    console.log(classes)
+    console.log(message)
     return (
 
         <div id="cm-msg-5" class={"chat-msg " + type}>
